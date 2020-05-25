@@ -12,3 +12,9 @@
   ```
  git clone https://github.com/zhengduoru/my_dot_file.git ~/.vimtemp ; mv ~/.vimtemp/.vim* ~ ; mv ~/.vimtemp/.tmux.conf ~; cat ~/.vimtemp/.bashrc.part >> ~/.bashrc; rm -rf ~/.vimtemp; 
   ```
+ 
+ 3. 加上sqlformat依赖
+ ```
+ pip install --upgrade sqlparse
+ pip install sqlformat
+ ```

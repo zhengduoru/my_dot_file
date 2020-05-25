@@ -30,8 +30,9 @@ nmap <c-x> :bd<CR>
 nmap <c-q> :q<CR>
 nmap <c-w> :w<CR>
 
-nmap <F9> :set invrelativenumber<CR>
+nmap <F3> :set invrelativenumber<CR>
 set pastetoggle=<F10>
+nmap <F9> :%!sqlformat -a --keywords upper --identifiers lower -<CR>
 
 " #######下面是插件设置
 " ####################################################################################
