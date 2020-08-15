@@ -10,7 +10,7 @@
  ```
  2. 再克隆
   ```
- git clone https://github.com/zhengduoru/my_dot_file.git ~/.vimtemp ; mv ~/.tmux/ ~ ; mv ~/.vimtemp/.vim* ~ ; mv ~/.vimtemp/.tmux.conf ~; cat ~/.vimtemp/.bashrc.part >> ~/.bashrc; rm -rf ~/.vimtemp; 
+ git clone https://github.com/zhengduoru/my_dot_file.git ~/.vimtemp ; mv ~/.vimtemp/.tmux/ ~ ; mv ~/.vimtemp/.vim* ~ ; mv ~/.vimtemp/.tmux.conf ~; cat ~/.vimtemp/.bashrc.part >> ~/.bashrc; rm -rf ~/.vimtemp; 
   ```
  
  3. 加上sqlformat依赖
