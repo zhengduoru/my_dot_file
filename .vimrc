@@ -47,6 +47,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/YouCompleteMe', { 'do' : './install.py' }
 call plug#end()
 " PlugInstall [name ...] [#threads]	Install plugins
 " PlugUpdate [name ...] [#threads]	Install or update plugins
@@ -82,6 +83,7 @@ let g:ctrlp_custom_ignore = {
 "If a file is already open, open it again in a new pane instead of switching to the existing pane
 let g:ctrlp_switch_buffer = 'et'
 
+" ####################################################################################
 "自动识别粘贴模式
 "inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 "function! XTermPasteBegin()
@@ -110,3 +112,22 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" ####################################################################################
+" YouCompleteMe
+" 函数排版不跳出
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0  
+" 颜色
+highlight PMenu ctermfg=0 ctermbg=3 guifg=black guibg=darkgrey
+highlight PMenuSel ctermfg=3 ctermbg=0 guifg=darkgrey guibg=black
+" 诊断信息
+" let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+" 输入两个字符后开始补全
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+" 补全快捷键
+let g:ycm_key_invoke_completion = '<c-z>'
+
