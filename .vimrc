@@ -131,4 +131,5 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 "let g:ycm_complete_in_strings=1
 "" 补全快捷键
 "let g:ycm_key_invoke_completion = '<c-z>'
+"nnoremap <C-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
