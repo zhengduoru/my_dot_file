@@ -6,6 +6,7 @@ set guifont=Consolas:h15
 " set number
 set autoindent
 set smartindent
+set expandtab
 set tabstop=4
 set autochdir
 set hlsearch
