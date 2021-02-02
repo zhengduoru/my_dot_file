@@ -49,6 +49,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe', { 'do' : './install.py' }
+Plug 'roxma/vim-paste-easy'
 call plug#end()
 " PlugInstall [name ...] [#threads]	Install plugins
 " PlugUpdate [name ...] [#threads]	Install or update plugins
@@ -85,51 +86,28 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_switch_buffer = 'et'
 
 " ####################################################################################
-"自动识别粘贴模式
-"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-"function! XTermPasteBegin()
-"      set pastetoggle=<Esc>[201~
-"        set paste
-"          return ""
-"      endfunction
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
-
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
-
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
-
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-" ####################################################################################
 " YouCompleteMe
 " 函数排版不跳出
-"set completeopt=menu,menuone
-"let g:ycm_add_preview_to_completeopt = 0  
-"" 颜色
-"highlight PMenu ctermfg=0 ctermbg=3 guifg=black guibg=darkgrey
-"highlight PMenuSel ctermfg=3 ctermbg=0 guifg=darkgrey guibg=black
-"" 诊断信息
-"" let g:ycm_show_diagnostics_ui = 0
-"let g:ycm_server_log_level = 'info'
-"" 输入两个字符后开始补全
-"let g:ycm_min_num_identifier_candidate_chars = 2
-"let g:ycm_collect_identifiers_from_comments_and_strings = 1
-"let g:ycm_complete_in_strings=1
-"" 补全快捷键
-"let g:ycm_key_invoke_completion = '<c-z>'
-"nnoremap <C-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+" 颜色
+highlight PMenu ctermfg=0 ctermbg=3 guifg=black guibg=darkgrey
+highlight PMenuSel ctermfg=3 ctermbg=0 guifg=darkgrey guibg=black
+" 诊断信息
+" let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+" 输入两个字符后开始补全
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+" 补全快捷键
+let g:ycm_key_invoke_completion = '<c-z>'
+nnoremap <C-i> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" 系统python路径
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/global_extra_conf.py'
