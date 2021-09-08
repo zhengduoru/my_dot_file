@@ -12,6 +12,7 @@
   ```
  git clone https://github.com/zhengduoru/my_dot_file.git ~/.vimtemp ; mv ~/.vimtemp/.tmux/ ~ ; mv ~/.vimtemp/.vim* ~ ; mv ~/.vimtemp/.tmux.conf ~; cat ~/.vimtemp/.bashrc.part >> ~/.bashrc; unzip -q ~/.vimtemp/YouCompleteMe.zip && mv YouCompleteMe ~/.vim/bundle;  rm -rf ~/.vimtemp; 
  # YouCompleteMe 需要手动编译一下
+ cd ~/.vim/bundle/YouCompleteMe/
  python3 install.py --clang-completer
  ```
  
